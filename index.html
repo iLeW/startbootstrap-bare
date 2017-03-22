@@ -3,6 +3,9 @@
 
 <head>
 
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery-3.2.0.min.js"></script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,10 +52,12 @@
 
 
     <script>
-        $.get('dati.txt', function (data) {
+        $.get('file:\\dati.txt', function (data) {
             var lines = data.split("\n");
+            $("p").text("outside");
 
             $.each(lines, function (n, elem) {
+                $("p").text("inside");
                 $('#prova').append($('<option>', {value:elem, text:elem}))
             });
         });
@@ -147,8 +152,6 @@
     </div>
     <!-- /.container -->
 
-    <!-- jQuery Version 1.11.1 -->
-    <script src="js/jquery-3.2.0.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
