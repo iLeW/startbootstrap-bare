@@ -13,13 +13,15 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/system.css" rel="stylesheet">
+    <link href="css/bootstrap-combobox.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <style>
-    body {
-        padding-top: 70px;
-        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    }
+        body {
+            padding-top: 70px;
+            /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
     </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -28,6 +30,33 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- JQuery scripts-->
+    <!--<script>
+        $(function () {
+            $("#menu1").change(function () {
+                $("#menu2").show();
+                $("#menu2").load("dati.txt");
+            });
+        });
+    </script>-->
+
+    <!--<script type="text/javascript">
+        $(document).ready(function () {
+            $('.combobox').combobox();
+        });
+    </script>-->
+
+
+    <script>
+        $.get('dati.txt', function (data) {
+            var lines = data.split("\n");
+
+            $.each(lines, function (n, elem) {
+                $('#prova').append($('<option>', {value:elem, text:elem}))
+            });
+        });
+    </script>
 
 </head>
 
@@ -80,14 +109,52 @@
         </div>
         <!-- /.row -->
 
+        <h2>Trova la ISO</h2>
+        <p>Seleziona la versione desiderata dal menù e prosegui con le scelte</p>
+
+        <form class="form-inline">
+            <select class="selectContainer" name="model" id="model">
+                <option value="">Modello macchina</option>
+                <option value="black">Black</option>
+                <option value="green">Green</option>
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="white">White</option>
+            </select>
+
+            <select class="selectContainer" name="rev" id="rev">
+                <option value="">Rev</option>
+                <option value="black">Black</option>
+                <option value="green">Green</option>
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="white">White</option>
+            </select>
+
+            <select class="selectContainer" name="iso" id="iso">
+                <option value="">ISO</option>
+                <option value="black">Black</option>
+                <option value="green">Green</option>
+                <option value="red">Red</option>
+                <option value="yellow">Yellow</option>
+                <option value="white">White</option>
+            </select>
+
+            <select class="selectContainer" name="prova" id="prova">
+            </select>
+
+        </form>
     </div>
     <!-- /.container -->
 
     <!-- jQuery Version 1.11.1 -->
-    <script src="js/jquery.js"></script>
+    <script src="js/jquery-3.2.0.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <!-- Other JS-->
+    <script src="js/bootstrap-combobox.js"></script>
 
 </body>
 

@@ -1,0 +1,3 @@
+CreadigitXXL: Rev1, Rev2
+Pippo: Rev3
+Pluto: Rev3, Rev1
